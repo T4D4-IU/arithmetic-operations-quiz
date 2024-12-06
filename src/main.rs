@@ -1,5 +1,9 @@
+use rand::Rng;
+
 fn main() {
-    println!("1+1=??");
+    let op1 = rand::thread_rng().gen_range(0..100);
+    let op2 = rand::thread_rng().gen_range(0..100);
+    println!("{}+{}=??", op1, op2);
     println!("??の値を入力してください：");
     let mut ans_input = String::new(); // userからの回答を保持する変数
     // 標準入力から1行取得し、ans_inputに格納
@@ -7,19 +11,21 @@ fn main() {
     // ans_inputからtrim()で改行を取り除き、parse()で数値(u32)型に変換する
     let ans_input = ans_input.trim().parse::<u32>().unwrap();
     dbg!(&ans_input); // ans_inputの中身を表示
-    if dbg!(ans_input == 1 + 1) { // この部分がエラーになる
+    if dbg!(ans_input == op1 + op2) { // この部分がエラーになる
         println!("正解です！");
     } else {
         println!("不正解です！");
     }
 
-    println!("1-4=??");//ここを変更
+    let op1 = rand::thread_rng().gen_range(0..100);
+    let op2 = rand::thread_rng().gen_range(0..100);
+    println!("{} - {} =??", op1, op2);
     println!("??の値を入力してください：");
     let mut ans_input = String::new();
     std::io::stdin().read_line(&mut ans_input).unwrap();
     let ans_input = ans_input.trim().parse::<i32>().unwrap();
     dbg!(ans_input);
-    if dbg!(ans_input == 1 - 4) {
+    if dbg!(ans_input == op1 - op2) {
         println!("正解です！");
     } else {
         println!("不正解です！");
