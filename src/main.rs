@@ -12,4 +12,18 @@ fn main() {
     } else {
         println!("不正解です！");
     }
+
+    println!("1-4=??");//ここを変更
+    println!("??の値を入力してください：");
+    let mut ans_input = String::new();
+    std::io::stdin().read_line(&mut ans_input).unwrap();
+    let ans_input = ans_input.trim().parse::<i32>().unwrap();
+    dbg!(ans_input);
+    if dbg!(ans_input == 1 - 4) {
+        println!("正解です！");
+    } else {
+        println!("不正解です！");
+    }
+    println!("i32が扱えるデータ範囲: {} ~ {}", i32::MIN, i32::MAX);
+    println!("u32が扱えるデータ範囲: {} ~ {}", u32::MIN, u32::MAX);
 }
