@@ -16,9 +16,18 @@ fn main() {
                 // 標準入力から1行取得し、ans_inputに格納
                 std::io::stdin().read_line(&mut ans_input).unwrap();
                 // ans_inputからtrim()で改行を取り除き、parse()で数値(u32)型に変換する
-                let ans_input = ans_input.trim().parse::<u32>().unwrap();
+                let ans_input = ans_input.trim().parse::<u32>().ok();
+                match ans_input {
+                    Some(ans_input) => {
+                        dbg!(ans_input);
+                    }
+                    None => {
+                        println!("数値を入力してください");
+                        continue;
+                    }
+                }
                 dbg!(&ans_input); // ans_inputの中身を表示
-                if dbg!(ans_input == op1 + op2) { // この部分がエラーになる
+                if dbg!(ans_input == Some(op1 + op2)) { // この部分がエラーになる
                     println!("正解です！");
                     num_of_correct += 1; // 正解数を1増やす
                     break; // 正解したらループを抜ける
@@ -33,9 +42,18 @@ fn main() {
                 println!("??の値を入力してください：");
                 let mut ans_input = String::new();
                 std::io::stdin().read_line(&mut ans_input).unwrap();
-                let ans_input = ans_input.trim().parse::<i32>().unwrap();
+                let ans_input = ans_input.trim().parse::<i32>().ok();
+                match ans_input {
+                    Some(ans_input) => {
+                        dbg!(ans_input);
+                    }
+                    None => {
+                        println!("数値を入力してください");
+                        continue;
+                    }
+                }
                 dbg!(ans_input);
-                if dbg!(ans_input == op1 - op2) {
+                if dbg!(ans_input == Some(op1 - op2)) {
                     println!("正解です！");
                     num_of_correct += 1;
                     break;
