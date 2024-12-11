@@ -2,7 +2,7 @@ use rand::Rng;
 
 fn main() {
     let mut num_of_correct = 0; // 正解数を保持する変数
-while num_of_correct < 3 { // 正解数が3未満の間ループ
+    while num_of_correct < 3 { // 正解数が3未満の間ループ
 
         // quiz_modeをランダムに１か２に設定
         let quiz_mode = rand::thread_rng().gen_range(1..=2);
