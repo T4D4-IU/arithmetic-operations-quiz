@@ -7,7 +7,7 @@ fn main() {
         // quiz_modeをランダムに１か２に設定
         let quiz_mode = rand::thread_rng().gen_range(1..=2);
         match quiz_mode {
-            1 => { // 足し算
+            1 => loop { // 足し算
                 let op1 = rand::thread_rng().gen_range(0..100);
                 let op2 = rand::thread_rng().gen_range(0..100);
                 println!("{}+{}=??", op1, op2);
@@ -21,11 +21,12 @@ fn main() {
                 if dbg!(ans_input == op1 + op2) { // この部分がエラーになる
                     println!("正解です！");
                     num_of_correct += 1; // 正解数を1増やす
+                    break; // 正解したらループを抜ける
                 } else {
                     println!("不正解です！");
                 }
             }
-            2 => { // 引き算
+            2 => loop { // 引き算
                 let op1 = rand::thread_rng().gen_range(0..100);
                 let op2 = rand::thread_rng().gen_range(0..100);
                 println!("{} - {} =??", op1, op2);
@@ -37,6 +38,7 @@ fn main() {
                 if dbg!(ans_input == op1 - op2) {
                     println!("正解です！");
                     num_of_correct += 1;
+                    break;
                 } else {
                     println!("不正解です！");
                 }
